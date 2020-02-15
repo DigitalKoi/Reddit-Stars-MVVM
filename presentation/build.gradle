@@ -67,6 +67,9 @@ dependencies {
     implementation presentationDependencies.timber
     implementation presentationDependencies.glide
     debugImplementation presentationDependencies.leakCanaryDebug
+    implementation presentationDependencies.stetho
+    implementation presentationDependencies.stethoNetworkHelper
+    implementation presentationDependencies.flipper
 
     // TESTING
 
