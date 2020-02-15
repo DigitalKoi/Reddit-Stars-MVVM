@@ -1,0 +1,189 @@
+ext {
+
+    // Android
+    androidSupportLibVersion = "29.0.3"
+    kotlinVersion = '1.3.61'
+    androidMinSdkVersion = 21
+    androidTargetSdkVersion = 29
+    androidCompileSdkVersion = 29
+
+    // AndroidX
+
+    archLifecycleVersion= '2.0.0'
+    constraintLayoutVersion = '1.1.3'
+    appCompatVersion = '1.1.0'
+    materialDesignVersion = '1.0.0'
+    roomVersion = '2.0.0'
+
+
+    // testing
+
+    junit = "junit:junit:4.12"
+    jUnitVersion = '4.12'
+    mockitoKotlinVersion = '2.0.0-RC1'
+    androidTestRunner = 'androidx.test.ext:junit:1.1.1'
+    androidRunner = 'androidx.test:runner:1.1.1'
+    espresso = 'androidx.test.espresso:espresso-core:3.1.0'
+    androidSupportRunnerVersion = '1.1.1'
+    androidSupportRulesVersion = '1.1.1'
+    robolectricVersion = '3.8'
+
+    //Libraries
+
+    rxKotlinVersion = '2.4.0'
+    rxBindingVersion = '2.1.1'
+    rxAndroidVersion = '2.1.1'
+    javaxAnnotationVersion = '1.0'
+    javaxInjectVersion = '1'
+    overscrollVersion = '1.0.4'
+    rxRelayVersion = '2.0.0'
+    ciceroneVersion = '5.0.0'
+    gsonVersion = '2.8.5'
+    androidAnnotationsVersion = '21.0.3'
+    retrofitVersion = '2.4.0'
+    okHttpVersion = '3.11.0'
+    daggerVersion = '2.16'
+    leakCanaryVersion = '2.2'
+    timberVersion = '4.7.1'
+    reactiveNetworkVersion = '3.0.6'
+    flexBoxLayoutVersion = '1.0.0'
+    glideVersion = '4.9.0'
+    jsonVersion = '20190722'
+
+    domainDependencies = [
+            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
+            javaxAnnotation:    "javax.annotation:jsr250-api:$javaxAnnotationVersion",
+            javaxInject:        "javax.inject:javax.inject:$javaxInjectVersion",
+            rxKotlin:            "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
+    ]
+
+    domainTestDependencies = [
+            junit:              "junit:junit:${jUnitVersion}",
+            kotlinJUnit:        "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion",
+            mockito:            "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}"
+    ]
+
+    dataDependencies = [
+            javaxAnnotation:    "javax.annotation:jsr250-api:$javaxAnnotationVersion",
+            javaxInject:        "javax.inject:javax.inject:$javaxInjectVersion",
+            rxKotlin:            "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion",
+            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
+            rxRelay:            "com.jakewharton.rxrelay2:rxrelay:$rxRelayVersion"
+    ]
+
+    dataTestDependencies = [
+            junit:              "junit:junit:${jUnitVersion}",
+            kotlinJUnit:        "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion",
+            mockito:            "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}"
+    ]
+
+    presentationDependencies = [
+            rxKotlin:           "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion",
+            rxBinding:          "com.jakewharton.rxbinding2:rxbinding:$rxBindingVersion",
+            rxAndroid:          "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+            rxRelay:            "com.jakewharton.rxrelay2:rxrelay:$rxRelayVersion",
+            cardView:           'androidx.cardview:cardview:1.0.0',
+            overScroll:         "me.everything:overscroll-decor-android:$overscrollVersion",
+            cicerone:           "ru.terrakok.cicerone:cicerone:$ciceroneVersion",
+            daggerCompiler:     "com.google.dagger:dagger-compiler:$daggerVersion",
+            dagger:             "com.google.dagger:dagger:$daggerVersion",
+            archRuntime:        "androidx.lifecycle:lifecycle-runtime:$archLifecycleVersion",
+            archExtensions:     "androidx.lifecycle:lifecycle-extensions:$archLifecycleVersion",
+            archCompiler:       "androidx.lifecycle:lifecycle-compiler:$archLifecycleVersion",
+            leakCanaryDebug :   "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion",
+            timber:             "com.jakewharton.timber:timber:$timberVersion",
+            constraintLayout:   "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+            supportDesign :     "com.google.android.material:material:$materialDesignVersion",
+            supportAppCompat:   "androidx.appcompat:appcompat:$appCompatVersion",
+            flexBoxLayout :     "com.google.android:flexbox:$flexBoxLayoutVersion",
+            gson :              "com.google.code.gson:gson:${gsonVersion}",
+            glide:              "com.github.bumptech.glide:glide:${glideVersion}",
+    ]
+
+    presentationTestDependencies = [
+            junit:              "junit:junit:$jUnitVersion",
+            kotlinJUnit:        "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion",
+            mockito:            "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
+            archCompTesting:    "androidx.arch.core:core-testing:$archLifecycleVersion"
+    ]
+
+    remoteDependencies = [
+            gson:               "com.google.code.gson:gson:${gsonVersion}",
+            rxKotlin:           "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion",
+            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
+            javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject:        "javax.inject:javax.inject:${javaxInjectVersion}",
+            androidAnnotations: "com.android.support:support-annotations:${androidAnnotationsVersion}",
+            okHttp:             "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            okHttpLogger:       "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
+            retrofit:           "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitConverter:  "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            retrofitAdapter:    "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
+    ]
+
+    remoteTestDependencies = [
+            junit:              "junit:junit:${jUnitVersion}",
+            kotlinJUnit:        "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}",
+            mockito:            "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}"
+    ]
+
+    persistenceDependencies = [
+            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+            rxKotlin:           "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion",
+            rxRelay:            "com.jakewharton.rxrelay2:rxrelay:$rxRelayVersion",
+            roomRuntime:        "androidx.room:room-runtime:$roomVersion",
+            roomCompiler:       "androidx.room:room-compiler:$roomVersion",
+            roomRxJava:         "androidx.room:room-rxjava2:$roomVersion",
+            gson:               "com.google.code.gson:gson:${gsonVersion}",
+            timber:             "com.jakewharton.timber:timber:$timberVersion"
+    ]
+
+    persistenceTestDependencies = [
+            junit:              "junit:junit:${jUnitVersion}",
+            kotlinJUnit:        "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}",
+            mockito:            "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}",
+            robolectric:        "org.robolectric:robolectric:${robolectricVersion}",
+            roomTesting:        "androidx.room:room-testing:$roomVersion",
+            archTesting:        "androidx.arch.core:core-testing:$archLifecycleVersion",
+            supportRunner:      "androidx.test:runner:$androidSupportRunnerVersion",
+            supportRules:       "androidx.test:rules:${androidSupportRulesVersion}"
+    ]
+
+    deviceDependencies = [
+            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+            rxKotlin:           "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion",
+            timber:             "com.jakewharton.timber:timber:$timberVersion",
+            reactiveNetwork:    "com.github.pwittchen:reactivenetwork-rx2:$reactiveNetworkVersion",
+            rxRelay:            "com.jakewharton.rxrelay2:rxrelay:$rxRelayVersion"
+    ]
+
+    navigatorDependencies = [
+            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+            rxRelay:            "com.jakewharton.rxrelay2:rxrelay:$rxRelayVersion",
+            rxKotlin:            "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion",
+            timber:             "com.jakewharton.timber:timber:$timberVersion",
+            gson:               "com.google.code.gson:gson:${gsonVersion}",
+    ]
+
+    navigatorTestDependencies = [
+            junit:              "junit:junit:${jUnitVersion}",
+            kotlinJUnit:        "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}",
+            mockito:            "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}",
+            supportRules:       "androidx.test:rules:$androidSupportRulesVersion",
+            archTesting:        "androidx.arch.core:core-testing:$archLifecycleVersion"
+    ]
+
+    analytics = [
+            kotlin:          "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+            rxRelay:            "com.jakewharton.rxrelay2:rxrelay:$rxRelayVersion",
+            rxKotlin:            "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion",
+            timber:             "com.jakewharton.timber:timber:$timberVersion",
+            gson:               "com.google.code.gson:gson:${gsonVersion}"
+    ]
+
+    analyticsTestDependencies = [
+            junit:              "junit:junit:${jUnitVersion}",
+            kotlinJUnit:        "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}",
+            json:               "org.json:json:${jsonVersion}"
+    ]
+}

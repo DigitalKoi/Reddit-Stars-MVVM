@@ -1,20 +1,23 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+
     defaultConfig {
         applicationId "com.koidev.redditstarsmvvm"
-        minSdkVersion 21
-        targetSdkVersion 29
+        minSdkVersion globalConfiguration["androidMinSdkVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -24,11 +27,52 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.2.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    def presentationDependencies = rootProject.ext.presentationDependencies
+    def presentationTestDependencies = rootProject.ext.presentationTestDependencies
+
+    // SUPPORT
+
+    implementation presentationDependencies.supportDesign
+    implementation presentationDependencies.supportAppCompat
+    implementation presentationDependencies.cardView
+    implementation presentationDependencies.constraintLayout
+
+    // RX
+
+    implementation presentationDependencies.rxKotlin
+    implementation presentationDependencies.rxAndroid
+    implementation presentationDependencies.rxBinding
+    implementation presentationDependencies.rxRelay
+
+    // DI
+
+    implementation presentationDependencies.dagger
+    implementation presentationDependencies.constraintLayout
+    kapt presentationDependencies.daggerCompiler
+
+    // ARCH. COMPONENTS
+
+    implementation presentationDependencies.archRuntime
+    implementation presentationDependencies.archExtensions
+
+    implementation presentationDependencies.gson
+
+    kapt presentationDependencies.archCompiler
+
+    // OTHER
+
+    implementation presentationDependencies.cicerone
+    implementation presentationDependencies.timber
+    implementation presentationDependencies.glide
+    debugImplementation presentationDependencies.leakCanaryDebug
+
+    // TESTING
+
+    testImplementation presentationTestDependencies.junit
+    testImplementation presentationTestDependencies.kotlinJUnit
+    testImplementation presentationTestDependencies.mockito
+    testImplementation presentationTestDependencies.archCompTesting
+
+    androidTestImplementation rootProject.ext.androidTestRunner
+    androidTestImplementation rootProject.ext.espresso
 }
