@@ -1,2 +1,2 @@
-include ':presentation', ':data', ':domain', ':remote', ':persistence'
+include ':presentation', ':data', ':domain', ':remote', ':persistence', ':device'
 rootProject.name='Reddit Stars MVVM'

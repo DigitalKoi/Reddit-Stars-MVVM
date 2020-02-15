@@ -24,6 +24,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "environment"
+
+    productFlavors {
+        dev {
+            dimension "environment"
+            applicationIdSuffix '.dev'
+            versionNameSuffix '-DEV'
+            buildConfigField 'String', 'HOST', '"https://www.reddit.com/"'
+        }
+
+        prod {
+            dimension "environment"
+            buildConfigField 'String', 'HOST', '"https://www.reddit.com/"'
+        }
+    }
 }
 
 dependencies {
