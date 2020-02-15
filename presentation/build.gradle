@@ -75,4 +75,11 @@ dependencies {
 
     androidTestImplementation rootProject.ext.androidTestRunner
     androidTestImplementation rootProject.ext.espresso
+
+    // MODULE DEPENDENCIES
+
+    implementation project(':domain')
+    implementation project(':data')
+    implementation project(':remote')
+    implementation project(':persistence')
 }
