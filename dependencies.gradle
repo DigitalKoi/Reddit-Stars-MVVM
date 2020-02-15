@@ -49,6 +49,8 @@ ext {
     flexBoxLayoutVersion = '1.0.0'
     glideVersion = '4.9.0'
     jsonVersion = '20190722'
+    stethoVersion = '1.5.0'
+    flipperVersion = '0.8.1'
 
     domainDependencies = [
             kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
@@ -98,6 +100,9 @@ ext {
             flexBoxLayout :     "com.google.android:flexbox:$flexBoxLayoutVersion",
             gson :              "com.google.code.gson:gson:${gsonVersion}",
             glide:              "com.github.bumptech.glide:glide:${glideVersion}",
+            stetho:             "com.facebook.stetho:stetho:$stethoVersion",
+            stethoNetworkHelper:"com.facebook.stetho:stetho-okhttp3:$stethoVersion",
+            flipper:            "com.facebook.flipper:flipper:$flipperVersion",
     ]
 
     presentationTestDependencies = [
@@ -119,6 +124,8 @@ ext {
             retrofit:           "com.squareup.retrofit2:retrofit:${retrofitVersion}",
             retrofitConverter:  "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
             retrofitAdapter:    "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
+            stetho:             "com.facebook.stetho:stetho:$stethoVersion",
+            stethoNetworkHelper:"com.facebook.stetho:stetho-okhttp3:$stethoVersion"
     ]
 
     remoteTestDependencies = [

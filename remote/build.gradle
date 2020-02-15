@@ -16,6 +16,8 @@ dependencies {
     implementation remoteDependencies.retrofit
     implementation remoteDependencies.retrofitConverter
     implementation remoteDependencies.retrofitAdapter
+    implementation remoteDependencies.stethoNetworkHelper
+    implementation remoteDependencies.stetho
 
     testImplementation remoteTestDependencies.junit
     testImplementation remoteTestDependencies.mockito

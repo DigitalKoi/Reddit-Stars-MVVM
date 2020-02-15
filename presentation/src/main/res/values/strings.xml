@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Reddit Stars MVVM</string>
+
+
+    <!-- region Snackbar no connection widget -->
+    <string name="snackbar_no_connection">Нет интернет-соединения</string>
+    <!-- endregion -->
+
 </resources>

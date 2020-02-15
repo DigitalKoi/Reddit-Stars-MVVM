@@ -1,0 +1,36 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+
+    defaultConfig {
+        minSdkVersion globalConfiguration["androidMinSdkVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    def deviceDependencies = rootProject.ext.deviceDependencies
+
+    implementation project(':domain')
+
+    implementation deviceDependencies.kotlin
+    implementation deviceDependencies.rxKotlin
+    implementation deviceDependencies.timber
+    implementation deviceDependencies.reactiveNetwork
+    implementation deviceDependencies.rxRelay
+}
