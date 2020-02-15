@@ -1,0 +1,55 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+
+
+
+    defaultConfig {
+        minSdkVersion globalConfiguration["androidMinSdkVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    def persistenceDependencies = rootProject.ext.persistenceDependencies
+    def persistenceTestDependencies = rootProject.ext.persistenceTestDependencies
+
+    implementation persistenceDependencies.kotlin
+    implementation persistenceDependencies.rxKotlin
+    implementation persistenceDependencies.rxRelay
+    implementation persistenceDependencies.roomRuntime
+    implementation persistenceDependencies.roomRxJava
+    implementation persistenceDependencies.gson
+    implementation persistenceDependencies.timber
+
+    kapt persistenceDependencies.roomCompiler
+
+    implementation project(':data')
+
+    // Testing
+
+    testImplementation persistenceTestDependencies.junit
+    testImplementation persistenceTestDependencies.kotlinJUnit
+    testImplementation persistenceTestDependencies.robolectric
+    testImplementation persistenceTestDependencies.archTesting
+    testImplementation persistenceTestDependencies.roomTesting
+    testImplementation persistenceTestDependencies.mockito
+
+    androidTestImplementation persistenceTestDependencies.supportRunner
+    androidTestImplementation persistenceTestDependencies.junit
+    androidTestImplementation persistenceTestDependencies.kotlinJUnit
+}
