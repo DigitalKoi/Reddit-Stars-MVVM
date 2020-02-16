@@ -9,7 +9,4 @@ import javax.inject.Singleton
     AppModule::class,
     NetworkModule::class
 ])
-interface MainComponent  {
-
-
-}
+interface MainComponent

@@ -12,12 +12,17 @@ class OkHttpFactory {
     ): OkHttpClient {
 
         val builder = OkHttpClient.Builder()
-            .connectTimeout(120, TimeUnit.SECONDS)
-            .readTimeout(120, TimeUnit.SECONDS)
+            .connectTimeout(CONNECTION_TIMEOUT, TimeUnit.SECONDS)
+            .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
 
         interceptors.forEach { interceptor -> builder.addInterceptor(interceptor) }
         networkInterceptors.forEach { interceptor -> builder.addNetworkInterceptor(interceptor) }
 
         return builder.build()
+    }
+
+    companion object {
+        private const val CONNECTION_TIMEOUT = 120L
+        private const val READ_TIMEOUT = 120L
     }
 }
