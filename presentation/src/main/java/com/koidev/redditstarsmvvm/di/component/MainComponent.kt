@@ -2,6 +2,7 @@ package com.koidev.redditstarsmvvm.di.component
 
 import com.koidev.redditstarsmvvm.di.module.AppModule
 import com.koidev.redditstarsmvvm.di.module.NetworkModule
+import com.koidev.redditstarsmvvm.di.module.RedditListModule
 import dagger.Component
 import javax.inject.Singleton
 
@@ -9,4 +10,7 @@ import javax.inject.Singleton
     AppModule::class,
     NetworkModule::class
 ])
-interface MainComponent
+interface MainComponent {
+
+    fun plus(redditListModule: RedditListModule): RedditListSubComponent
+}

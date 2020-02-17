@@ -1,7 +1,8 @@
-package com.koidev.redditstarsmvvm
+package com.koidev.redditstarsmvvm.global
 
 import android.app.Application
 import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
+import com.koidev.redditstarsmvvm.BuildConfig
 import com.koidev.redditstarsmvvm.di.common.ComponentManager
 import com.koidev.redditstarsmvvm.di.common.DefaultComponentManager
 import timber.log.Timber

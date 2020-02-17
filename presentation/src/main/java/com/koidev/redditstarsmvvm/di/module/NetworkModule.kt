@@ -2,7 +2,7 @@ package com.koidev.redditstarsmvvm.di.module
 
 import com.facebook.flipper.plugins.network.FlipperOkhttpInterceptor
 import com.facebook.stetho.okhttp3.StethoInterceptor
-import com.koidev.redditstarsmvvm.RedditApplication
+import com.koidev.redditstarsmvvm.global.RedditApplication
 import com.koidev.remote.service.RemoteServiceFactory
 import com.koidev.remote.service.api.RedditApi
 import com.koidev.remote.service.http.OkHttpFactory

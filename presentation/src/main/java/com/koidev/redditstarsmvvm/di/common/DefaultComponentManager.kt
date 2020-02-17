@@ -4,8 +4,10 @@ import android.content.Context
 import com.koidev.redditstarsmvvm.BuildConfig
 import com.koidev.redditstarsmvvm.di.component.DaggerMainComponent
 import com.koidev.redditstarsmvvm.di.component.MainComponent
+import com.koidev.redditstarsmvvm.di.component.RedditListSubComponent
 import com.koidev.redditstarsmvvm.di.module.AppModule
 import com.koidev.redditstarsmvvm.di.module.NetworkModule
+import com.koidev.redditstarsmvvm.di.module.RedditListModule
 
 class DefaultComponentManager (context: Context) : ComponentManager {
 
@@ -15,12 +17,24 @@ class DefaultComponentManager (context: Context) : ComponentManager {
         .build()
 
 
+    private var redditListSubComponent: RedditListSubComponent? = null
+
+
     // region CREATING COMPONENTS
 
     override fun getMainComponent(): MainComponent = mainComponent
 
+    override fun createRedditListSubComponent(): RedditListSubComponent = mainComponent
+        .plus(RedditListModule()).also { redditListSubComponent = it }
+
     // endregion
 
+
     // region RELEASE COMPONENTS
+
+    override fun releaseRedditSubComponent() {
+        redditListSubComponent = null
+    }
+
     // endregion
 }
